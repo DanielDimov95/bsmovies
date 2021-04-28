@@ -1,0 +1,43 @@
+<div class="container">
+    <h3>{{movieId ? 'Update movie' : 'Add movie'}}</h3>
+    <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Title:</label>
+            <input type="text" class="form-control" formControlName="title">
+            <div *ngIf="movieForm.controls.title.invalid && (movieForm.controls.title.dirty || movieForm.controls.title.touched)" class="text-danger">
+                Title is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Director:</label>
+            <input type="text" class="form-control" formControlName="director">
+            <div *ngIf="movieForm.controls.director.invalid && (movieForm.controls.director.dirty || movieForm.controls.director.touched)" class="text-danger">
+                Director is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Distributor:</label>
+            <input type="text" class="form-control" formControlName="distributor">
+            <div *ngIf="movieForm.controls.distributor.invalid && (movieForm.controls.distributor.dirty || movieForm.controls.distributor.touched)" class="text-danger">
+                Distributor is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Rating:</label>
+            <input type="number" class="form-control" formControlName="imdb_rating">
+            <div *ngIf="movieForm.controls.imdb_rating.invalid && (movieForm.controls.imdb_rating.dirty || movieForm.controls.imdb_rating.touched)" class="text-danger">
+                Rating is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Votes:</label>
+            <input type="number" class="form-control" formControlName="imdb_votes">
+            <div *ngIf="movieForm.controls.imdb_votes.invalid && (movieForm.controls.imdb_votes.dirty || movieForm.controls.imdb_votes.touched)" class="text-danger">
+                Votes is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </form>
+</div>
